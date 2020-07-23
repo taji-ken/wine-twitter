@@ -18,6 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('favorite_type');
+            $table->string('favorite_taste');
+            $table->string('recommended_wine');
             $table->rememberToken();
             $table->timestamps();
         });
