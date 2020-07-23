@@ -30,17 +30,17 @@
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::radio('favorite_type', '赤' ,false , array('id' => 'red'));
-                    {!! Form::label('red', '赤');
-                    {!! Form::radio('favorite_type', '白' ,false , array('id' => 'white'));
-                    {!! Form::label('white', '白');
+                    {!! Form::radio('favorite_type', '赤' ,false , array('id' => 'red')) !!}
+                    {!! Form::label('red', '赤') !!}
+                    {!! Form::radio('favorite_type', '白' ,false , array('id' => 'white')) !!}
+                    {!! Form::label('white', '白') !!}
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::radio('favorite_taste', '甘口' ,false , array('id' => 'sweet'));
-                    {!! Form::label('sweet', '甘口');
-                    {!! Form::radio('favorite_taste', '辛口' ,false , array('id' => 'dry'));
-                    {!! Form::label('dry', '辛口');
+                    {!! Form::radio('favorite_taste', '甘口' ,false , array('id' => 'sweet')) !!}
+                    {!! Form::label('sweet', '甘口') !!}
+                    {!! Form::radio('favorite_taste', '辛口' ,false , array('id' => 'dry')) !!}
+                    {!! Form::label('dry', '辛口') !!}
                 </div>
                 
                 <div class="form-group">
