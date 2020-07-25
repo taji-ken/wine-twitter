@@ -3,21 +3,37 @@
 @section('content')
     <div class="row">
         <aside class="col-sm-4">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{ $user->name }}</h3>
-                </div>
-                <div class="card-body">
-                    <img class="rounded img-fluid" src="{{ Gravatar::src($user->email, 500) }}" alt="">
-                </div>
-            </div>
+            @include('users.card', ['user' => $user])
         </aside>
         <div class="col-sm-8">
-            <ul class="nav nav-tabs nav-justified mb-3">
-                <li class="nav-item"><a href="#" class="nav-link">TimeLine</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Followings</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Followers</a></li>
-            </ul>
+            @include('users.navtabs', ['user' => $user])
+            @if (Auth::id() == $user->id)
+                {!! Form::open(['route' => 'tweets.store']) !!}
+                    <div class="form-group">
+                        {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
+                    </div>
+                    
+                    <div class="form-group">
+                        {!! Form::radio('type', '赤' ,false , array('id' => 'red')) !!}
+                        {!! Form::label('red', '赤') !!}
+                        {!! Form::radio('type', '白' ,false , array('id' => 'white')) !!}
+                        {!! Form::label('white', '白') !!}
+                    </div>
+                
+                    <div class="form-group">
+                        {!! Form::radio('taste', '甘口' ,false , array('id' => 'sweet')) !!}
+                        {!! Form::label('sweet', '甘口') !!}
+                        {!! Form::radio('taste', '辛口' ,false , array('id' => 'dry')) !!}
+                        {!! Form::label('dry', '辛口') !!}
+                    </div>
+                    
+                    {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                    
+                {!! Form::close() !!}
+            @endif
+            @if (count($tweets) > 0)
+                @include('tweets.tweets', ['tweets' => $tweets])
+            @endif
         </div>
     </div>
 @endsection
