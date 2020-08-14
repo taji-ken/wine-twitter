@@ -7,9 +7,8 @@
                     {!! link_to_route('users.show', $tweet->user->name, ['id' => $tweet->user->id]) !!} <span class="text-muted">posted at {{ $tweet->created_at }}</span>
                 </div>
                 <div>
-                    <p class="mb-0"><span>ワインの種類</span>{!! nl2br(e($tweet->type)) !!}</p>
-                    <p class="mb-0"><span>ワインの味</span>{!! nl2br(e($tweet->taste)) !!}</p>
-                    <p class="mb-0">{!! nl2br(e($tweet->content)) !!}</p>
+                    <p class="mb-0">{!! nl2br(e($tweet->type)) !!}　{!! nl2br(e($tweet->taste)) !!}</p>
+                    <p class="mb-4">{!! nl2br(e($tweet->content)) !!}</p>
                 </div>
                 <div>
                     @if (Auth::id() == $tweet->user_id)

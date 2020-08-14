@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-center">
-        <h1>Sign up</h1>
+        <h1>会員登録</h1>
     </div>
 
     <div class="row">
@@ -10,26 +10,27 @@
 
             {!! Form::open(['route' => 'signup.post']) !!}
                 <div class="form-group">
-                    {!! Form::label('name', 'Name') !!}
+                    {!! Form::label('name', '名前') !!}
                     {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
+                    {!! Form::label('email', 'メール') !!}
                     {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password', 'Password') !!}
+                    {!! Form::label('password', 'パスワード') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password_confirmation', 'Confirmation') !!}
+                    {!! Form::label('password_confirmation', 'パスワード確認') !!}
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
+                    <p>好きなワインの種類</p>
                     {!! Form::radio('favorite_type', '赤' ,false , array('id' => 'red')) !!}
                     {!! Form::label('red', '赤') !!}
                     {!! Form::radio('favorite_type', '白' ,false , array('id' => 'white')) !!}
@@ -37,6 +38,7 @@
                 </div>
                 
                 <div class="form-group">
+                    <p>好きなワインの味</p>
                     {!! Form::radio('favorite_taste', '甘口' ,false , array('id' => 'sweet')) !!}
                     {!! Form::label('sweet', '甘口') !!}
                     {!! Form::radio('favorite_taste', '辛口' ,false , array('id' => 'dry')) !!}
@@ -48,7 +50,9 @@
                     {!! Form::text('recommended_wine', old('recommended_wine'), ['class' => 'form-control']) !!}
                 </div>
                 
-                {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
+                <div><a href="https://ja.gravatar.com/">Gravatar</a>でプロフィール写真を登録できます</div>
+                
+                {!! Form::submit('登録', ['class' => 'btn btn-primary btn-block mt-4 mb-5']) !!}
             {!! Form::close() !!}
         </div>
     </div>

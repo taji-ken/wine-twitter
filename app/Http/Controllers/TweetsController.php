@@ -11,7 +11,7 @@ class TweetsController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $tweets = $user->tweets()->orderBy('created_at', 'desc')->paginate(10);
+            $tweets = $user->feed_tweets()->orderBy('created_at', 'desc')->paginate(10);
             
             $data = [
                 'user' => $user,
@@ -41,7 +41,7 @@ class TweetsController extends Controller
     
     public function destroy($id)
     {
-        $tweet = \App\Micropost::find($id);
+        $tweet = \App\Tweet::find($id);
 
         if (\Auth::id() === $tweet->user_id) {
             $tweet->delete();
